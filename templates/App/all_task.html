@@ -1,0 +1,35 @@
+{% extends "App/base.html" %}
+
+{% block title %}
+all task | title
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h2 class="mx-auto p-2 fw-lighter">My all task</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="text-start">Task</th>
+      <th scope="col" class="text-end">Actions</th> <!-- Add a column for actions -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <td class="fw-lighter">{{ task.name }}</td>
+      <td class="text-end">
+        <a href="{% url 'update-task' task.slug %}"><button type="button"
+            class="btn btn-outline-primary btn-sm">Update</button></a>
+        <a href="{% url 'delete-task' task.slug %}"><button type="button"
+            class="btn btn-outline-danger btn-sm">Delete</button></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  <div class="d-grid mx-auto">
+<a class="text-center" href="{% url 'create-task' %}"><button class="btn btn-outline-primary btn-sm" type="button">Create</button></a>
+  </div>
+</div>
+{% endblock %}

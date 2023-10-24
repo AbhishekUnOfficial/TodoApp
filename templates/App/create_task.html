@@ -1,0 +1,19 @@
+{% extends "App/base.html" %}
+
+
+{% block title %}
+Create task
+{% endblock %}
+
+{% block content %}
+<div container>
+<form class="form-control" action="{% url "create-task" %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+    Task name: {{ form.name }}<br>
+    Task description: {{ form.description }}
+    </div>
+    <button class="btn btn-primary btn-sm" type="submit">Create</button>
+</form>
+</div>
+{% endblock %}
