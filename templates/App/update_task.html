@@ -1,15 +1,22 @@
-{% extends 'App/base.html' %}
+{% extends "App/base.html" %}
+
 
 {% block title %}
 update task
 {% endblock %}
 
 {% block content %}
-<div container>
+<div class="m-3">
 <form class="form-control" action="{% url "update-task" task.slug %}" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-group">
+    Task name: {{ form.name }}
+    </div>
+    <div clasd="form-group">
+    Task description: {{ form.description }}
+    </div>
     <button class="btn btn-primary btn-sm" type="submit">Update</button>
+    <a href="{% url 'all-task' %}"><button class="btn btn-secondary btn-sm" type="button">Cancel</button></a>
 </form>
 </div>
 {% endblock %}

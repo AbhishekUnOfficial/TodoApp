@@ -1,0 +1,14 @@
+{% extends 'App/base.html' %}
+
+{% block title %}
+  {{ task.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="container p-3">
+<h2>{{ task.name }}</h2>
+<p>{{ task.description }}</p>
+<p>This task is created at : {{ task.created_time}} - {{ task.created_date }}</p>
+<p>This task is updated at : {{ task.updated_time}} - {{ task.updated_date }}</p>
+  </div>
+{% endblock %}

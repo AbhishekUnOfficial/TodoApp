@@ -6,7 +6,7 @@ all task | title
 
 {% block content %}
 <div class="container">
-<h2 class="mx-auto p-2 fw-lighter">My all task</h2>
+  <p class="h2 mx-auto pt-3 text-center fw-lighter">My all task</p>
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +17,7 @@ all task | title
   <tbody>
     {% for task in tasks %}
     <tr>
-      <td class="fw-lighter">{{ task.name }}</td>
+      <td><a class="fw-lighter link-underline link-underline-opacity-0" href="{{ task.slug }}">{{ task.name }}</a></td>
       <td class="text-end">
         <a href="{% url 'update-task' task.slug %}"><button type="button"
             class="btn btn-outline-primary btn-sm">Update</button></a>
